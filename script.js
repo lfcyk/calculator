@@ -17,6 +17,7 @@ function divide(a,b) {
 let a=0;
 let b=0;
 let operator = "";
+let dot=false;
 resetDisplay(0);
 
 function operate(a,operator,b) {
@@ -40,7 +41,12 @@ function resetDisplay(displayNum) {
 const numButtons = document.querySelectorAll(`[data-number]`);
 numButtons.forEach((button) => {
     button.addEventListener("click", () => {
-        displayNum = displayNum*10 + Number(button.innerHTML);
+        // displayNum = displayNum*10 + Number(button.innerHTML);
+        if(displayNum == 0) {
+            displayNum = button.innerHTML;
+        } else {
+            displayNum = displayNum + button.innerHTML;
+        }
         resetDisplay(displayNum);
     })
 })
@@ -103,5 +109,11 @@ deleteButton.addEventListener("click", () => {
 
 const dotButton = document.querySelector('#button-dot');
 dotButton.addEventListener("click", () => {
-
+    if(dot){
+        return;
+    } else {
+        displayNum = displayNum + ".";
+        resetDisplay(displayNum);
+        dot = true;
+    }
 })

@@ -1,5 +1,6 @@
 function add(a,b) {
-    return a+b;
+
+    return Number(a)+Number(b);
 }
 
 function substract(a,b) {
@@ -14,8 +15,8 @@ function divide(a,b) {
     return a/b;
 }
 
-let a=0;
-let b=0;
+let a=null;
+let b=null;
 let operator = "";
 let dot=false;
 resetDisplay(0);
@@ -36,6 +37,9 @@ let displayNum = 0;
 function resetDisplay(displayNum) {
     const screen = document.getElementById("display-number");
     screen.textContent = displayNum;
+    console.log("a = ", a);
+    console.log("operator = ", operator);
+    console.log("b = ", b);
 }
 
 const numButtons = document.querySelectorAll(`[data-number]`);
@@ -68,7 +72,7 @@ operatorButtons.forEach((button) => {
             resetDisplay(displayNum);
             a = displayNum;
             displayNum = 0;
-            b = 0;
+            b = null;
             operator = button.innerHTML;
 
         }
@@ -87,16 +91,16 @@ equalButton.addEventListener("click", (e) => {
     }
 
     //reset calculator
-    a=0;
+    a=null;
     operator="";
-    b=0;
+    b=null;
 })
 
 const clearButton = document.querySelector('#button-clear');
 clearButton.addEventListener("click", () => {
-    a=0;
+    a=null;
     operator="";
-    b=0;
+    b=null;
     displayNum=0;
     resetDisplay(displayNum);
 })

@@ -37,9 +37,9 @@ let displayNum = 0;
 function resetDisplay(displayNum) {
     const screen = document.getElementById("display-number");
     screen.textContent = displayNum;
-    console.log("a = ", a);
-    console.log("operator = ", operator);
-    console.log("b = ", b);
+    // console.log("a = ", a);
+    // console.log("operator = ", operator);
+    // console.log("b = ", b);
 }
 
 const numButtons = document.querySelectorAll(`[data-number]`);
